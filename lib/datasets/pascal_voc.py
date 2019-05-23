@@ -236,6 +236,8 @@ class pascal_voc(imdb):
             y1 = float(bbox.find('ymin').text)
             x2 = float(bbox.find('xmax').text)
             y2 = float(bbox.find('ymax').text)
+            if x1 == y1 or x2 == y2:
+                print('invalid bb')
 
             diffc = obj.find('difficult')
             difficult = 0 if diffc == None else int(diffc.text)
